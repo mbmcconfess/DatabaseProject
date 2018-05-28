@@ -15,7 +15,6 @@ public class JdbcConnection {
             int port = 1433;
 
             String jdbcUrl = "jdbc:sqlserver:" + server + ":" + port + ";databaseName=" + database + ";integratedSecurity=true";
-            //String jdbcUrl = "jdbc:sqlserver://localhost\\ITDEPT:1433;database=sarbagya";
 
             con = DriverManager.getConnection(jdbcUrl);
             System.out.println("Connection Obtained");
