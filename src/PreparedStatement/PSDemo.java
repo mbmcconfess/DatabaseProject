@@ -15,44 +15,49 @@ public class PSDemo {
         PreparedStatement statement;
         ResultSet resultSet;
         Scanner input = new Scanner(System.in);
-        int c;
+        int b,c;
+        String a;
         String conString = JDBC_URL + server + ":" + port + ";databaseName=" + database + ";integratedSecurity=true";
 
         try {
             Class.forName(JDBC_DRIVER);
             connection = DriverManager.getConnection(conString);
 
-            System.out.println("Press 1 for UPDATE\nPress 2 for DELETE\nPress 3 for INSERT");
+            System.out.println("Press 1 for INSERT\nPress 2 for UPDATE\nPress 3 for DELETE");
             System.out.print(">>");
             c= input.nextInt();
+            Scanner inputNew = new Scanner(System.in);
             switch(c) {
-
                 case 1:
-                    String updateString = "UPDATE student SET name=? where rollno=?";
-                    statement = connection.prepareStatement(updateString);
-                    statement.setString(1, "Shyam");
-                    statement.setInt(2, 2);
+                    String insertString = "insert into  STUDENT values(?,?)";
+                    statement = connection.prepareStatement(insertString);
+                    System.out.print("Enter name: ");
+                    a = inputNew.nextLine();
+                    statement.setString(1, a);
+                    System.out.print("Enter roll no: ");
+                    b = inputNew.nextInt();
+                    statement.setInt(2, b);
                     statement.executeUpdate();
                     break;
 
                 case 2:
-                    String deleteString = "DELETE student where rollno=?";
-                    statement = connection.prepareStatement(deleteString);
-                    statement.setInt(1, 3);
+                    String updateString = "UPDATE student SET name=? where rollno=?";
+                    statement = connection.prepareStatement(updateString);
+                    System.out.print("Enter name: ");
+                    a = inputNew.nextLine();
+                    statement.setString(1, a);
+                    System.out.print("Enter roll no: ");
+                    b = inputNew.nextInt();
+                    statement.setInt(2, b);
                     statement.executeUpdate();
                     break;
 
-
                 case 3:
-                    String insertString = "insert into  STUDENT values(?,?)";
-                    statement = connection.prepareStatement(insertString);
-
-                    statement.setString(1, "Ram");
-                    statement.setInt(2, 2);
-                    statement.executeUpdate();
-
-                    statement.setString(1, "Sita");
-                    statement.setInt(2, 3);
+                    String deleteString = "DELETE student where rollno=?";
+                    statement = connection.prepareStatement(deleteString);
+                    System.out.print("Enter roll no: ");
+                    b = inputNew.nextInt();
+                    statement.setInt(1, b);
                     statement.executeUpdate();
                     break;
             }

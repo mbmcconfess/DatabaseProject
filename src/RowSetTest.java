@@ -8,6 +8,6 @@ public class RowSetTest {
 
         JdbcRowSet rowSet = rowSetFactory.createJdbcRowSet();
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        rowSet.setUrl(jdbc:sqlserver://localhost\ITDEPT:1433;database=sarbagya);
+        //rowSet.setUrl(jdbc:sqlserver://localhost\\ITDEPT:1433;database=sarbagya);
     }
 }
