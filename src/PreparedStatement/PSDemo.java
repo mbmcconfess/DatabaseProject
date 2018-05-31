@@ -53,7 +53,7 @@ public class PSDemo {
                     break;
 
                 case 3:
-                    String deleteString = "DELETE student where rollno=?";
+                    String deleteString = "DELETE student WHERE rollno=?";
                     statement = connection.prepareStatement(deleteString);
                     System.out.print("Enter roll no: ");
                     b = inputNew.nextInt();
